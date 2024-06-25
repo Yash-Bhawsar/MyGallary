@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrapper{
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+html, body{
+    font-family: "Poppins", sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container{
+    height: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.container h2{
+    /* top and bottom margin = 20px and left and right margin =0 */
+    margin: 20px 0;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 3rem;
+}
+
+.gallery{
+    /* to easy space distribution */
+    display: flex;
+    /* to place content that is extra to be downward row flex-wrap */
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card{
+    /* 32% so that only 3 img comes in one row also space btw cols will be 4 % */
+    width: 32%;
+    /* For overlapping text over image card must be postioned relative */
+    position: relative;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    /* border-radius: 10px 100px / 120px; */
+    overflow: hidden;
+}
+
+.card img{
+    /* image should occupy full width of card so 100% of parent's width */
+    width: 100%;
+    /* to make image's bottom corners round */
+    height: 100%;
+    filter: grayscale(100%);
+    object-fit: cover;
+}
+
+.card:hover{
+    transform: scale(1.05);
+    transition: 0.7;
+    /* give a shadow when card is at hover state */
+    filter: drop-shadow(0 0 10px #333);
+}
+
+.card:hover img{
+    /* remove filter at hover on img */
+    filter: grayscale(0%);
+}
+
+.card figcaption{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 25px;
+    width: 100%;
+    height: 20%;
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    /* to hide the text when image is not at hover condition */
+    opacity: 0;
+    border-radius: 0 0 10px 10px;
+    /* add gradient to the text bg to make it appear when it gets hovered */
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
+    transition: 0.4s;
+
+}
+
+.card:hover figcaption{
+    /* text should appear on hovering state */
+    opacity: 1;
+    transform: scale(1.04);
+}
+
+
+
